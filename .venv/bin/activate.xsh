@@ -28,7 +28,7 @@ def _deactivate(args):
 _deactivate(["nondestructive"])
 aliases["deactivate"] = _deactivate
 
-$VIRTUAL_ENV = r"/workspace/exercise-instagram-data-modeling/.venv"
+$VIRTUAL_ENV = r"/workspace/Instagram-data-model/.venv"
 
 $_OLD_VIRTUAL_PATH = $PATH
 $PATH = $PATH[:]
@@ -39,7 +39,7 @@ if ${...}.get("PYTHONHOME", ""):
     $_OLD_VIRTUAL_PYTHONHOME = $PYTHONHOME
     del $PYTHONHOME
 
-$VIRTUAL_ENV_PROMPT = "(exercise-instagram-data-modeling) "
+$VIRTUAL_ENV_PROMPT = "(Instagram-data-model) "
 if not $VIRTUAL_ENV_PROMPT:
     del $VIRTUAL_ENV_PROMPT
 

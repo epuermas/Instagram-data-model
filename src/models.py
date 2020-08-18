@@ -32,6 +32,7 @@ class Post(Base):
     id = Column(Integer, primary_key=True)
     person_id = Column(Integer, ForeignKey('person.id'))
     date = Column(String(250), nullable=False)
+    likes = Column(String(250), nullable=True)
     image = relationship('Image', uselist=False, back_populates='post')
 
 class Address(Base):
