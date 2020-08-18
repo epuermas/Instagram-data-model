@@ -15,20 +15,24 @@ class Person(Base):
     id = Column(Integer, primary_key=True)
     name = Column(String(250), nullable=False)
     username = Column(String(250), nullable=False)
+    posts = relationship('Post')
 
 class Image(Base):
     __tablename__ = 'image'
     # Here we define columns for the table person
     # Notice that each column is also a normal Python instance attribute.
     id = Column(Integer, primary_key=True)
+    post_id = Column(Integer, ForeignKey('post.id'))
     url = Column(String(250), nullable=False)
     size = Column(String(250), nullable=False)
+    person = relationship('Post', back_populates='image')
 
 class Post(Base):
     __tablename__ = 'post'
     id = Column(Integer, primary_key=True)
+    person_id = Column(Integer, ForeignKey('person.id'))
     date = Column(String(250), nullable=False)
-    image = relationship(Image)
+    image = relationship('Image', uselist=False, back_populates='post')
 
 class Address(Base):
     __tablename__ = 'address'
@@ -39,7 +43,7 @@ class Address(Base):
     street_number = Column(String(250))
     post_code = Column(String(250), nullable=False)
     person_id = Column(Integer, ForeignKey('person.id'))
-    person = relationship(Person)
+    person = relationship('Person')
 
     def to_dict(self):
         return {}
