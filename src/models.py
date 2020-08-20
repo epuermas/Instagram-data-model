@@ -19,7 +19,7 @@ class Person(Base):
 
 class Image(Base):
     __tablename__ = 'image'
-    # Here we define columns for the table person
+    # Here we define columns for the table image
     # Notice that each column is also a normal Python instance attribute.
     id = Column(Integer, primary_key=True)
     post_id = Column(Integer, ForeignKey('post.id'))
@@ -29,6 +29,7 @@ class Image(Base):
 
 class Post(Base):
     __tablename__ = 'post'
+    # Here we define columns for the table class
     id = Column(Integer, primary_key=True)
     person_id = Column(Integer, ForeignKey('person.id'))
     date = Column(String(250), nullable=False)
