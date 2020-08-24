@@ -13,8 +13,8 @@ class Person(Base):
     # Here we define columns for the table person
     # Notice that each column is also a normal Python instance attribute.
     id = Column(Integer, primary_key=True)
-    name = Column(String(200), nullable=False)
-    username = Column(String(200), nullable=False)
+    name = Column(String(250), nullable=False)
+    username = Column(String(250), nullable=False)
     posts = relationship('Post')
 
 class Image(Base):
@@ -23,8 +23,8 @@ class Image(Base):
     # Notice that each column is also a normal Python instance attribute.
     id = Column(Integer, primary_key=True)
     post_id = Column(Integer, ForeignKey('post.id'))
-    url = Column(String(200), nullable=False)
-    size = Column(String(200), nullable=False)
+    url = Column(String(250), nullable=False)
+    size = Column(String(250), nullable=False)
     person = relationship('Post', back_populates='image')
 
 class Post(Base):
@@ -32,8 +32,8 @@ class Post(Base):
     # Here we define columns for the table class
     id = Column(Integer, primary_key=True)
     person_id = Column(Integer, ForeignKey('person.id'))
-    date = Column(String(200), nullable=False)
-    likes = Column(String(200), nullable=True)
+    date = Column(String(250), nullable=False)
+    likes = Column(String(250), nullable=True)
     image = relationship('Image', uselist=False, back_populates='post')
 
 class Address(Base):
@@ -41,9 +41,9 @@ class Address(Base):
     # Here we define columns for the table address.
     # Notice that each column is also a normal Python instance attribute.
     id = Column(Integer, primary_key=True)
-    street_name = Column(String(200))
-    street_number = Column(String(200))
-    post_code = Column(String(200), nullable=False)
+    street_name = Column(String(250))
+    street_number = Column(String(250))
+    post_code = Column(String(250), nullable=False)
     person_id = Column(Integer, ForeignKey('person.id'))
     person = relationship('Person')
 
