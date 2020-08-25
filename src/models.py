@@ -29,7 +29,7 @@ class Image(Base):
 
 class Post(Base):
     __tablename__ = 'post'
-    # Here we define columns for the table class
+    # Here we define columns for the table post
     id = Column(Integer, primary_key=True)
     person_id = Column(Integer, ForeignKey('person.id'))
     date = Column(String(250), nullable=False)
